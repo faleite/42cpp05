@@ -1,14 +1,13 @@
 ```
-:: ██████╗██████╗ ██████╗::::::██████╗:██╗::██╗::
-::██╔════╝██╔══██╗██╔══██╗::::██╔═████╗██║::██║::
-::██║:::::██████╔╝██████╔╝::::██║██╔██║███████║::
+:: ██████╗██████╗ ██████╗::::::██████╗:███████╗::
+::██╔════╝██╔══██╗██╔══██╗::::██╔═████╗██╔════╝::
+::██║:::::██████╔╝██████╔╝::::██║██╔██║███████╗::
 ::██║:::::██╔═══╝ ██╔═══╝ ::::████╔╝██║╚════██║::
-::╚██████╗██║:::::██║:::::::::╚██████╔╝:::::██║::
-:: ╚═════╝╚═╝:::::╚═╝::::::::: ╚═════╝::::::╚═╝::
+::╚██████╗██║:::::██║:::::::::╚██████╔╝███████║::
+:: ╚═════╝╚═╝:::::╚═╝::::::::: ╚═════╝:╚══════╝::
 ```
                                              
-*This module is designed to help you understand Subtype polymorphism,\
-abstract classes and interfaces in CPP.*
+*This module is designed to help you understand Try/Catch and Exceptions in CPP.*
 
  Skills | Grade |
 :------:|:-----:|
@@ -19,7 +18,7 @@ abstract classes and interfaces in CPP.*
   * **[General rules](#general-rules)**
   * **[design requirements](#alguns-requisitos-de-design)**
   * **[Read me](#read-me)**
-* **[Wiki](https://github.com/faleite/42cpp00/wiki/Module-V)**
+* **[Wiki](https://github.com/faleite/42cpp00/wiki/Module-VI)**
 * **[Roadmap](https://faleite.github.io/cpp)**
 * **[Study resources](#study-resources)**
 <!-- * ### [Usage]() -->
