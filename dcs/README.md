@@ -11,103 +11,109 @@
 06. **[Add custom exception class]()**
 07. **[resources]()**
 
-## Sub-typing polymorphism
-**Definimos Polimorfismo** *como um princípio a partir do qual as classes derivadas de uma única classe base são capazes de invocar os métodos que, embora apresentem a mesma assinatura,comportam-se de maneira diferente para cada uma das classes derivadas. (A palavra significa ter muitas formas)*
+## Nested classes
+Uma **classe aninhada** (nested class) é uma classe que é definida dentro do escopo de outra classe. Essas classes são úteis para organizar e agrupar logicamente o código relacionado, especialmente quando a classe aninhada é fortemente associada à classe externa. A classe aninhada pode acessar membros privados da classe que a contém, mas o contrário não é verdade a menos que sejam feitas provisões específicas para isso.
 
-**O Polimorfismo** *é um mecanismo por meio do qual selecionamos as funcionalidades utilizadas de forma dinâmica por um programa no decorrer de sua execução.*
+### Exemplos
 
-*Com o Polimorfismo, os mesmos atributos e objetos podem ser utilizados em objetos distintos, porém, com implementações lógicas diferentes.*
+Aqui está um exemplo básico para ilustrar o conceito de classes aninhadas:
 
--***Subtyping polymorphism***, também conhecido como **polimorfismo de subtipo** ou** polimorfismo de inclusão**, é um conceito da orientação a objetos onde um tipo derivado `(subtipo)` pode ser usado no lugar de um tipo base `(supertipo)`. Em outras palavras, um objeto de uma classe derivada pode ser tratado como se fosse um objeto da classe base. Isso permite que funções trabalhem com objetos de diferentes classes que compartilham a mesma interface ou superclasse.
-
-**Destrutores Virtuais***: Sempre declare destrutores virtuais nas classes base para garantir que os destrutores das classes derivadas sejam chamados corretamente.*
-
-***Exemplo:***
 ```cpp
 #include <iostream>
 
-// Classe base
-class Animal {
+class Outer {
 public:
-    // Construtor
-    Animal() {
-        std::cout << "Animal constructor called" << std::endl;
-    }
+    Outer(int val) : value(val) {}
+    void show() const { std::cout << "Outer value: " << value << std::endl; }
 
-    // Destrutor virtual
-	/* O destrutor é virtual para garantir que o destrutor correto seja 
-	chamado para objetos derivados. Ele também imprime uma mensagem 
-	indicando que foi chamado.*/
-    virtual ~Animal() {
-        std::cout << "Animal destructor called" << std::endl;
-    }
+    class Inner {
+    public:
+        Inner(int val) : innerValue(val) {}
+        void show() const { std::cout << "Inner value: " << innerValue << std::endl; }
+    private:
+        int innerValue;
+    };
 
-	// Função virtual pura (método abstrato)
-	/* A classe Animal é uma classe base abstrata com um método virtual puro
-	makeSound. Isso significa que Animal não pode ser instanciada diretamente.*/
-    virtual void makeSound() const = 0;
-};
-
-// Classe derivada Dog
-class Dog : public Animal {
-public:
-    // Construtor
-    Dog() {
-        std::cout << "Dog constructor called" << std::endl;
-    }
-
-    // Destrutor
-    ~Dog() {
-        std::cout << "Dog destructor called" << std::endl;
-    }
-
-    // Sobrescrevendo o método makeSound
-    void makeSound() const {
-        std::cout << "Woof!" << std::endl;
-    }
-};
-
-// Classe derivada Cat
-class Cat : public Animal {
-public:
-    // Construtor
-    Cat() {
-        std::cout << "Cat constructor called" << std::endl;
-    }
-
-    // Destrutor
-    ~Cat() {
-        std::cout << "Cat destructor called" << std::endl;
-    }
-
-    // Sobrescrevendo o método makeSound
-    void makeSound() const {
-        std::cout << "Meow!" << std::endl;
-    }
+private:
+    int value;
 };
 
 int main() {
-    // Array de ponteiros para Animal
-    Animal* animals[2];
+    Outer outer(10);
+    outer.show();
 
-    // Adicionando objetos Dog e Cat ao array
-    animals[0] = new Dog();
-    animals[1] = new Cat();
-
-    // Loop através do array e chamando makeSound para cada animal
-    for (int i = 0; i < 2; ++i) {
-		/*Aqui, o polimorfismo entra em ação, pois a chamada para makeSound
-		resolve para a versão apropriada do método (Dog ou Cat), dependendo 
-		do tipo real do objeto.*/
-        animals[i]->makeSound();
-    }
-
-    // Limpando a memória alocada dinamicamente
-    for (int i = 0; i < 2; ++i) {
-        delete animals[i];
-    }
+    Outer::Inner inner(20);
+    inner.show();
 
     return 0;
 }
 ```
+
+### Explicações
+
+1. **Definição da Classe Aninhada:**
+   - A classe `Inner` é definida dentro da classe `Outer`.
+   - `Inner` é uma classe pública de `Outer`, o que significa que pode ser acessada de fora da classe `Outer`.
+
+2. **Criação de Objetos:**
+   - Um objeto da classe `Outer` é criado usando o construtor `Outer`.
+   - Um objeto da classe `Inner` é criado usando `Outer::Inner`, indicando que `Inner` está dentro do escopo de `Outer`.
+
+3. **Acesso aos Membros:**
+   - A classe `Inner` tem seu próprio conjunto de membros, independente da classe `Outer`.
+   - `Inner` pode acessar os membros privados da classe `Outer` se necessário, mas nesse exemplo específico, não há tal acesso.
+
+### Acesso aos Membros Privados
+
+Uma classe aninhada pode acessar membros privados da classe externa diretamente. Aqui está um exemplo:
+
+```cpp
+#include <iostream>
+
+class Outer {
+public:
+    Outer(int val) : value(val) {}
+
+    class Inner {
+    public:
+        void show(const Outer& outer) const { std::cout << "Accessing Outer value: " << outer.value << std::endl; }
+    };
+
+private:
+    int value;
+};
+
+int main() {
+    Outer outer(10);
+    Outer::Inner inner;
+    inner.show(outer);
+
+    return 0;
+}
+```
+
+Neste exemplo, a classe `Inner` acessa diretamente o membro privado `value` da instância da classe `Outer` passada como argumento.
+
+### Utilização Prática
+
+Classes aninhadas são úteis em várias situações:
+
+1. **Encapsulamento de Implementação:**
+   - A classe aninhada pode ser usada para ocultar detalhes de implementação que não devem ser expostos fora da classe externa.
+
+2. **Organização de Código:**
+   - Mantém o código relacionado logicamente agrupado, o que pode tornar o código mais limpo e fácil de entender.
+
+3. **Acesso a Membros Privados:**
+   - Facilita o acesso a membros privados da classe externa sem a necessidade de friend declarations.
+
+### Conclusão
+
+Classes aninhadas em C++ são uma poderosa ferramenta para organizar e encapsular o código, mantendo o acesso aos membros privados quando necessário. Elas são particularmente úteis quando há uma relação lógica forte entre as duas classes, permitindo um design mais limpo e coeso.
+
+[↑ Index ↑](#index)
+
+## Exceptions
+
+
 [↑ Index ↑](#index)

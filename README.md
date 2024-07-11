@@ -67,7 +67,9 @@ Divida o código da sua classe em dois arquivos. O arquivo de cabeçalho (.hpp/.
 ## Study resources
 Resource | Source
 ---------|:-----:
+[CPP Tutorial (C++98)](https://cplusplus.com/doc/oldtutorial) | `Website`
 [CPP Reference](https://cplusplus.com/) | `Website`
+[CPP++ shell](http://cpp.sh) | `run code online`
 [C++ Roadmap](https://roadmap.sh/cpp) | `roadmap.sh`
 [Wiki 42cpp](https://github.com/qingqingqingli/CPP/wiki) | `GitHub`
 [Os 4 Pilares da Orientação a Objetos](https://www.youtube.com/live/j2w8sMWhngo?si=eVnd-m_T-J3S8XpA) | `YouTube`
