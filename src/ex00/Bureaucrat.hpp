@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 19:49:40 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/07/18 20:24:01 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/07/19 20:35:28 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,44 @@
 
 #include <exception>
 #include <iostream>
-// #include <stdexcept>
 
-class Bureaucrat: public std::exception
+#define GRADE_MIN 150
+#define GRADE_MAX 1
+
+class Bureaucrat
 {
 	private:
-		const std::string name;
-		unsigned short int grade;
+		const std::string _name;
+		unsigned short int _grade;
 	public:
-		const char* what() const throw();
-		void GradeTooHighException();
-		void GradeTooLowException();
-		std::string getName(const std::string &name);
-		unsigned short int getGrade();
-		void setName(const std::string &name);
-		void setGrade();
+		// Exceptions
+		class GradeTooHighException: public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+				
+		};
+		
+		class GradeTooLowException: public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+				
+		};
+		
+		// Canonical Form
+		Bureaucrat();
+		Bureaucrat(const std::string &name, unsigned short int grade);
+		Bureaucrat(const Bureaucrat &copyObj);
+		Bureaucrat &operator=(const Bureaucrat &assignCopy);
+		~Bureaucrat();
+		
+		std::string getName() const;
+		unsigned short int getGrade() const;
+		void incrementGrade();
+		void decrementGrade();
 };
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &gay);
 
 #endif // BUREAUCRAT

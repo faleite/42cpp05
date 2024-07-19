@@ -6,7 +6,7 @@
 #    By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/14 20:38:06 by faaraujo          #+#    #+#              #
-#    Updated: 2024/06/25 20:13:30 by faaraujo         ###   ########.fr        #
+#    Updated: 2024/07/19 20:00:12 by faaraujo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,10 @@
 #                                 VARIABLES                                    #
 #******************************************************************************#
 
-NAME = animal
+NAME = bureaucrat
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp main.cpp
+SRC = Bureaucrat.cpp main.cpp
 OBJS = $(SRC:.cpp=.o)
 
 #******************************************************************************#

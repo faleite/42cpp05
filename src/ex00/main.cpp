@@ -6,9 +6,11 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 21:14:41 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/07/18 19:24:42 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/07/19 20:42:04 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "Bureaucrat.hpp"
 
 /* Subject
  *Observe que classes de exceção não precisam ser projetadas em
@@ -18,20 +20,63 @@ Forma Canônica Ortodoxa. Mas todas as outras classes precisam.
 Parece divertido? Não? Que pena.
 
 
- */
+*/
+int	main(void)
+{
+	{
+		// Bureaucrat person("Horace Mann", 1);
+		Bureaucrat person;
+		
+		std::cout << person;
+		std::cout << "I tried increment your grade, but..." << std::endl;
+		
+		try
+		{
+			person.incrementGrade();
+			std::cout << person;
+		}
+		catch (std::exception &e)
+		{
+			std::cout << e.what() << std::endl;
+		}
+	}
+	
+	std::cout << "==========================================" << std::endl;
+	
+	{
+		Bureaucrat person("Otto von Bismarck", 150);
+		
+		std::cout << person;
+		std::cout << "I tried decrement your grade, but..." << std::endl;
+		
+		try
+		{
+			person.decrementGrade();
+		}
+		catch (std::exception &e)
+		{
+			std::cout << e.what() << std::endl;
+		}
+	}
 
-// exceptions
-#include <iostream>
-using namespace std;
+	std::cout << "==========================================" << std::endl;
+	
+	{
+		Bureaucrat person("Alfred P. Sloan Jr", 43);
+		
+		std::cout << person;
+		std::cout << "I tried increment your grade, and..." << std::endl;
+		
+		try
+		{
+			person.incrementGrade();
+			std::cout << person;
+		}
+		catch (std::exception &e)
+		{
+			std::cout << e.what() << std::endl;
+		}
+	}
 
-int main () {
-  try
-  {
-    throw 20;
-  }
-  catch (int e)
-  {
-    cout << "An exception occurred. Exception Nr. " << e << endl;
-  }
-  return 0;
+	return (0);
 }
