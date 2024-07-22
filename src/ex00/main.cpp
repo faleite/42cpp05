@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 21:14:41 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/07/19 20:42:04 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/07/22 21:37:06 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ Parece divertido? Não? Que pena.
 int	main(void)
 {
 	{
-		// Bureaucrat person("Horace Mann", 1);
-		Bureaucrat person;
+		Bureaucrat person("Horace Mann", 1);
 		
 		std::cout << person;
 		std::cout << "I tried increment your grade, but..." << std::endl;
@@ -37,12 +36,11 @@ int	main(void)
 		}
 		catch (std::exception &e)
 		{
-			std::cout << e.what() << std::endl;
+			std::cerr << e.what() << std::endl;
 		}
 	}
 	
 	std::cout << "==========================================" << std::endl;
-	
 	{
 		Bureaucrat person("Otto von Bismarck", 150);
 		
@@ -55,12 +53,11 @@ int	main(void)
 		}
 		catch (std::exception &e)
 		{
-			std::cout << e.what() << std::endl;
+			std::cerr << e.what() << std::endl;
 		}
 	}
 
 	std::cout << "==========================================" << std::endl;
-	
 	{
 		Bureaucrat person("Alfred P. Sloan Jr", 43);
 		
@@ -74,9 +71,49 @@ int	main(void)
 		}
 		catch (std::exception &e)
 		{
-			std::cout << e.what() << std::endl;
+			std::cerr << e.what() << std::endl;
 		}
 	}
 
+	std::cout << "==========================================" << std::endl;
+	{
+		Bureaucrat person;
+		
+		std::cout << person;
+		std::cout << "I tried update your grade, and..." << std::endl;
+		
+		try
+		{
+			person.incrementGrade(); // grade take 149
+			person.decrementGrade(); // grade take 150
+			person.decrementGrade(); // grade try 151 but this is a excepetion
+			std::cout << person;
+		}
+		catch (Bureaucrat::GradeTooHighException &e)
+		{
+			std::cout << e.what() << std::endl;
+		}
+		catch (Bureaucrat::GradeTooLowException &e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+	}
+
+	std::cout << "==========================================" << std::endl;
+	{
+		try
+		{
+			Bureaucrat person("Somebody", -1);
+			std::cout << person;
+			std::cout << "I tried update your grade, and..." << std::endl;
+			person.incrementGrade();
+			std::cout << person;
+		}
+		catch (std::exception &e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+	}
+	
 	return (0);
 }

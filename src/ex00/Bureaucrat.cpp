@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 19:49:40 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/07/19 20:35:35 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/07/22 21:30:41 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,25 @@ Bureaucrat::Bureaucrat(): _name("None"), _grade(GRADE_MIN)
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const std::string &name, unsigned short int grade):
-						_name(name), _grade(grade)
+Bureaucrat::Bureaucrat(const std::string &name, int grade):
+	_name(name), _grade(grade)
 {
 	std::cout << "Constructor called for ";
 	std::cout << this->_name << std::endl;
+	
+	if (grade < GRADE_MAX) 
+        throw GradeTooHighException();
+	else if (grade > GRADE_MIN) 
+        throw GradeTooLowException();
 }
 
+/*
+O construtor de cópia permite copyObj._name na lista de inicializadores de membros
+porque this->name ainda não foi inicializado.
+
+A atribuição de cópia, this->_name já foi inicializada e const
+não pode ser copiada
+ */
 Bureaucrat::Bureaucrat(const Bureaucrat &copyObj):
 						_name(copyObj._name), _grade(copyObj._grade)
 {
@@ -38,10 +50,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &assignCopy)
 {
 	std::cout << "Assignment operator called" << std::endl;
 	if (this != &assignCopy)
-	{
-		// this->_name = assignCopy._name;
 		this->_grade = assignCopy._grade;
-	}
 	return (*this);
 }
 
@@ -58,7 +67,7 @@ std::string Bureaucrat::getName() const
 	return (_name);
 }
 
-unsigned short int Bureaucrat::getGrade() const
+int Bureaucrat::getGrade() const
 {
 	return (_grade);
 }
