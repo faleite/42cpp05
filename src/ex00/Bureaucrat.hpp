@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 19:49:40 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/07/22 21:16:28 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/07/23 19:21:47 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,14 @@ class Bureaucrat
 		class GradeTooHighException: public std::exception
 		{
 			public:
-				const char *what() const throw();
+				virtual const char *what() const throw();
 				
 		};
 		
 		class GradeTooLowException: public std::exception
 		{
 			public:
-				const char *what() const throw();
-				
+				virtual const char *what() const throw();		
 		};
 		
 		// Canonical Form

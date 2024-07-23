@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 21:14:41 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/07/22 21:37:06 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/07/23 19:19:44 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	main(void)
 		}
 		catch (std::exception &e)
 		{
+			std::cout << "Caught an exception:" << std::endl;
 			std::cerr << e.what() << std::endl;
 		}
 	}
@@ -53,6 +54,7 @@ int	main(void)
 		}
 		catch (std::exception &e)
 		{
+			std::cout << "Caught an exception:" << std::endl;
 			std::cerr << e.what() << std::endl;
 		}
 	}
@@ -71,6 +73,7 @@ int	main(void)
 		}
 		catch (std::exception &e)
 		{
+			std::cout << "Caught an exception:" << std::endl;
 			std::cerr << e.what() << std::endl;
 		}
 	}
@@ -91,10 +94,12 @@ int	main(void)
 		}
 		catch (Bureaucrat::GradeTooHighException &e)
 		{
+			std::cout << "Caught an exception:" << std::endl;
 			std::cout << e.what() << std::endl;
 		}
 		catch (Bureaucrat::GradeTooLowException &e)
 		{
+			std::cout << "Caught an exception:" << std::endl;
 			std::cerr << e.what() << std::endl;
 		}
 	}
@@ -103,17 +108,51 @@ int	main(void)
 	{
 		try
 		{
-			Bureaucrat person("Somebody", -1);
+			Bureaucrat person("Nobody", 742);
 			std::cout << person;
 			std::cout << "I tried update your grade, and..." << std::endl;
-			person.incrementGrade();
-			std::cout << person;
+			try
+			{
+				
+				person.incrementGrade();
+				std::cout << person;
+			}
+			catch (std::exception &e)
+			{
+				std::cout << "Caught an inner exception:" << std::endl;
+				std::cerr << e.what() << std::endl;
+			}
 		}
 		catch (std::exception &e)
 		{
+			std::cout << "Caught an outer exception:" << std::endl;
 			std::cerr << e.what() << std::endl;
 		}
 	}
-	
+
+	std::cout << "==========================================" << std::endl;
+	{
+		try
+		{
+			Bureaucrat person("Somebody", 1);
+			std::cout << person;
+			std::cout << "I tried update your grade, and..." << std::endl;
+			try
+			{
+				
+				person.incrementGrade();
+				std::cout << person;
+			}
+			catch (int n)
+			{
+				throw ; // forwards the exception to its external level.
+			}
+		}
+		catch (std::exception &e)
+		{
+			std::cout << "Caught an outer exception:" << std::endl;
+			std::cerr << e.what() << std::endl;
+		}
+	}
 	return (0);
 }
