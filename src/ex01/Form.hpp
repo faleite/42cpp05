@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 21:06:55 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/07/23 21:52:22 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/07/24 21:17:59 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ Caso contrário, ele imprimirá algo como:
 Implemente e entregue alguns testes para garantir que tudo funcione 
 conforme o esperado.
 */
-class Form: public Bureaucrat
+class Form
 {
 	private:
 		const std::string _name;
@@ -58,10 +58,21 @@ class Form: public Bureaucrat
 		const int _gradeToExec;
 	public:
 		// Exceptions
+		class GradeTooHighException: public std::exception
+		{
+			public:
+				virtual const char *what() const throw();	
+		};
+		
+		class GradeTooLowException: public std::exception
+		{
+			public:
+				virtual const char *what() const throw();		
+		};
 		
 		// Canonical Form
 		Form();
-		Form(const std::string &name, bool sign, 
+		Form(const std::string &name, 
 			const int grdToSig, const int grdToEx);
 		Form(const Form &copyObj);
 		Form &operator=(const Form &assignCopy);
@@ -70,6 +81,7 @@ class Form: public Bureaucrat
 		std::string getName() const;
 		int	getGradeToSign() const;
 		int	getGradeToExec() const;
+		bool	getIsSigned() const;
 		void beSigned(const Bureaucrat &bureaucrat);
 };
 

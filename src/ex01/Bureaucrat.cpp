@@ -6,11 +6,12 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 19:49:40 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/07/23 19:12:08 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/07/24 21:37:10 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 // Canonical members
 
@@ -102,4 +103,17 @@ const char *Bureaucrat::GradeTooHighException::what() const throw()
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return ("Grade too low, the min of grade is 150");
+}
+
+// About form
+
+void Bureaucrat::signForm(Form &form)
+{
+	if (form.getIsSigned())
+		std::cout << _name << " signed " << form.getName() << std::endl;
+	else
+	{
+		std::cout << _name << " couldn't sign " << form.getName();
+		std::cout << " because the grade is not sufficient." << std::endl;
+	}
 }
