@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 19:49:40 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/07/23 19:12:08 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/07/25 19:55:31 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void Bureaucrat::incrementGrade()
 
 void Bureaucrat::decrementGrade()
 {
-	if (_grade + 1 > GRADE_MAX)
+	if (_grade + 1 > GRADE_MIN)
 		throw GradeTooLowException();
 	_grade++;
 }
