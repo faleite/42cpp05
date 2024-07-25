@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 18:32:00 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/07/24 21:37:58 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/07/25 21:00:45 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Form::Form(const std::string &name, const int grdToSig, const int grdToEx):
 	if (grdToSig < GRADE_MAX || grdToEx < GRADE_MAX)
 		throw GradeTooHighException();
 	if (grdToSig > GRADE_MIN || grdToEx > GRADE_MIN)
-		throw GradeTooHighException();
+		throw GradeTooLowException();
 }
 
 Form::Form(const Form &copyObj): _name(copyObj._name), _isSigned(copyObj._isSigned),
@@ -49,7 +49,7 @@ Form &Form::operator=(const Form &assignCopy)
 
 Form::~Form()
 {
-	std::cout << "Form destroctor called for";
+	std::cout << "Form destroctor called for ";
 	std::cout << this->_name << std::endl;
 }
 
@@ -57,12 +57,12 @@ Form::~Form()
 
 const char *Form::GradeTooHighException::what() const throw()
 {
-	return ("Form grade too high, the max of grade is 1");
+	return ("Form grade too high!");
 }
 
 const char *Form::GradeTooLowException::what() const throw()
 {
-	return ("Form grade too low, the min of grade is 150");
+	return ("Form grade too low!");
 }
 
 // Getters
@@ -89,9 +89,9 @@ bool	Form::getIsSigned() const
 
 std::ostream &operator<<(std::ostream &out, const Form &form)
 {
-	out << form.getName() << "form status:\n"
-	<< "Grade required to sign: " << form.getGradeToSign()
-	<< "Grade required to execute: " << form.getGradeToExec()
+	out << form.getName() << " form status:\n"
+	<< "Grade required to sign: " << form.getGradeToSign() << "\n"
+	<< "Grade required to execute: " << form.getGradeToExec() << "\n"
 	<< "Form signature status: " 
 	<< (form.getIsSigned() ? "Signed" : "Unsigned") << std::endl;
 	return (out);

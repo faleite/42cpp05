@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 19:49:40 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/07/24 21:37:10 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/07/25 20:31:14 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 
 Bureaucrat::Bureaucrat(): _name("None"), _grade(GRADE_MIN)
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "Bureaucrat default constructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string &name, int grade):
 	_name(name), _grade(grade)
 {
-	std::cout << "Constructor called for ";
+	std::cout << "Bureaucrat constructor called for ";
 	std::cout << this->_name << std::endl;
 	
 	if (grade < GRADE_MAX) 
@@ -42,14 +42,14 @@ não pode ser copiada
 Bureaucrat::Bureaucrat(const Bureaucrat &copyObj):
 						_name(copyObj._name), _grade(copyObj._grade)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Bureaucrat copy constructor called" << std::endl;
 	if (this != &copyObj)
 		*this = copyObj;
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &assignCopy)
 {
-	std::cout << "Assignment operator called" << std::endl;
+	std::cout << "Bureaucrat assignment operator called" << std::endl;
 	if (this != &assignCopy)
 		this->_grade = assignCopy._grade;
 	return (*this);
@@ -57,7 +57,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &assignCopy)
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Destructor called for ";
+	std::cout << "Bureaucrat destructor called for ";
 	std::cout << this->_name << std::endl;
 }
 
@@ -82,7 +82,7 @@ void Bureaucrat::incrementGrade()
 
 void Bureaucrat::decrementGrade()
 {
-	if (_grade + 1 > GRADE_MAX)
+	if (_grade + 1 > GRADE_MIN)
 		throw GradeTooLowException();
 	_grade++;
 }
@@ -114,6 +114,6 @@ void Bureaucrat::signForm(Form &form)
 	else
 	{
 		std::cout << _name << " couldn't sign " << form.getName();
-		std::cout << " because the grade is not sufficient." << std::endl;
+		std::cout << " because did not receive the form" << std::endl;
 	}
 }

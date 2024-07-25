@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 21:06:55 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/07/24 21:17:59 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/07/25 19:51:11 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,9 @@ class Form
 		~Form();
 
 		std::string getName() const;
+		bool	getIsSigned() const;
 		int	getGradeToSign() const;
 		int	getGradeToExec() const;
-		bool	getIsSigned() const;
 		void beSigned(const Bureaucrat &bureaucrat);
 };
 
