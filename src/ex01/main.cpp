@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 21:14:41 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/07/25 20:56:34 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/07/26 21:53:26 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,33 +28,42 @@ int	main(void)
 		{
 			Form form("Performance evaluation", 5, 42);
 			Bureaucrat a("Horace Mann", 5);
-			Bureaucrat b("Otto von Bismarck", 5);
+			Bureaucrat b("Otto Von Bismarck", 5);
 			std::cout << "==========================================" << std::endl;
 			std::cout << a;
 			std::cout << b;
 			std::cout << "==========================================" << std::endl;
 			std::cout << form;
-			std::cout << "==========================================" << std::endl;
-			form.beSigned(b);
-			std::cout << "I tried update " << a.getName() << "'s grade and..." << std::endl;
 			try
 			{
 				
+				std::cout << "==========================================" << std::endl;
+				std::cout << "I tried update " << a.getName() << "'s grade and..." << std::endl;
 				a.decrementGrade();
 				std::cout << a;
 				a.signForm(form);
 				b.signForm(form);
+				// form.beSigned(b);
+				try
+				{
+					form.beSigned(b);
+				}
+				catch(const std::exception& e)
+				{
+					std::cerr << "===========plus  inner exception==========" << std::endl;
+					std::cerr << form.getName() << " " << e.what() << std::endl;
+				}
 				std::cout << "==========================================" << std::endl;
 			}
 			catch (std::exception &e)
 			{
-				std::cout << "Caught an inner exception:" << std::endl;
+				std::cerr << "=============inner exception==============" << std::endl;
 				std::cerr << e.what() << std::endl;
 			}
 		}
 		catch (std::exception &e)
 		{
-			std::cout << "Caught an outer exception:" << std::endl;
+			std::cerr << "=============outer exception==============" << std::endl;
 			std::cerr << e.what() << std::endl;
 		}
 	}

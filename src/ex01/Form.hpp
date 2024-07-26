@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 21:06:55 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/07/25 19:51:11 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/07/26 20:54:42 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,12 @@ class Form
 		};
 		
 		class GradeTooLowException: public std::exception
+		{
+			public:
+				virtual const char *what() const throw();		
+		};
+
+		class FormException: public std::exception
 		{
 			public:
 				virtual const char *what() const throw();		

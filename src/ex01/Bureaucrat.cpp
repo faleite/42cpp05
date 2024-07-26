@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 19:49:40 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/07/25 20:31:14 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/07/26 20:57:44 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,11 +109,14 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
 
 void Bureaucrat::signForm(Form &form)
 {
-	if (form.getIsSigned())
-		std::cout << _name << " signed " << form.getName() << std::endl;
-	else
+	try
 	{
-		std::cout << _name << " couldn't sign " << form.getName();
-		std::cout << " because did not receive the form" << std::endl;
+		form.beSigned(*this);
+		std::cout << _name << " signed " << form.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << _name << " couldn't sign " << form.getName();
+		std::cerr << " because " << e.what() << std::endl;
 	}
 }
