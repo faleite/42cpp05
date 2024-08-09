@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 20:10:20 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/07/31 20:13:00 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/08/09 17:42:16 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 # define ShrubberyCreationForm.HHP
 
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 /*
 Classe concreta:
 ShrubberyCreationForm: Notas necessárias: sinal 145, exec 137
 Cria um arquivo <target>_shrubbery no diretório de trabalho e grava árvores 
 ASCII dentro dele.
-
 */
 class AForm
 {
 	private:
-		const std::string _name;
-		bool _isSigned;
-		const int _gradeToSign;
-		const int _gradeToExec;
+		const std::string _target;
+		// bool _isSigned;
+		// const int _gradeToSign;
+		// const int _gradeToExec;
 	public:
 		// Exceptions
 		class GradeTooHighException: public std::exception
