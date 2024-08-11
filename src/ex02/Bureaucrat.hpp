@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 19:49:40 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/07/23 21:45:01 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/08/11 17:48:40 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #define GRADE_MIN 150
 #define GRADE_MAX 1
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -52,7 +52,8 @@ class Bureaucrat
 		int getGrade() const;
 		void incrementGrade();
 		void decrementGrade();
-		void signForm(Form &form);
+		void signForm(AForm &form);
+		void executeForm(AForm const & form);
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &gay);

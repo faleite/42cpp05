@@ -6,15 +6,20 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 20:10:20 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/08/09 17:42:16 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/08/11 17:55:17 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ShrubberyCreationForm.HHP
-# define ShrubberyCreationForm.HHP
+#ifndef SHRUBBERYCREATIONFORM_HHP
+# define SHRUBBERYCREATIONFORM_HHP
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+
+#define SHRU_SIGN 145
+#define SHRU_EXEC 137
+
+class Bureaucrat;
 
 /*
 Classe concreta:
@@ -22,48 +27,28 @@ ShrubberyCreationForm: Notas necessárias: sinal 145, exec 137
 Cria um arquivo <target>_shrubbery no diretório de trabalho e grava árvores 
 ASCII dentro dele.
 */
-class AForm
+class ShrubberyCreationForm: public AForm
 {
 	private:
 		const std::string _target;
-		// bool _isSigned;
-		// const int _gradeToSign;
-		// const int _gradeToExec;
 	public:
 		// Exceptions
-		class GradeTooHighException: public std::exception
+		class ShrubberyException: public std::exception
 		{
 			public:
 				virtual const char *what() const throw();	
 		};
-		
-		class GradeTooLowException: public std::exception
-		{
-			public:
-				virtual const char *what() const throw();		
-		};
+		// Canonical form
+		ShrubberyCreationForm();
+		ShrubberyCreationForm(const std::string &target);
+		ShrubberyCreationForm(const ShrubberyCreationForm &copyObj);
+		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &assignCopy);
+		~ShrubberyCreationForm();
 
-		class AFormException: public std::exception
-		{
-			public:
-				virtual const char *what() const throw();		
-		};
-		
-		// Canonical AForm
-		AForm();
-		AForm(const std::string &name, 
-			const int grdToSig, const int grdToEx);
-		AForm(const AForm &copyObj);
-		AForm &operator=(const AForm &assignCopy);
-		virtual ~AForm();
-
-		std::string getName() const;
-		bool	getIsSigned() const;
-		int	getGradeToSign() const;
-		int	getGradeToExec() const;
-		void beSigned(const Bureaucrat &bureaucrat);
+		std::string getTarget() const;
+		void	execute(Bureaucrat const & executor) const;
 };
 
-std::ostream &operator<<(std::ostream &out, const AForm &form);
+std::ostream &operator<<(std::ostream &out, const ShrubberyCreationForm &form);
 
-#endif // ShrubberyCreationForm.HHP
+#endif // SHRUBBERYCREATIONFORM_HHP
