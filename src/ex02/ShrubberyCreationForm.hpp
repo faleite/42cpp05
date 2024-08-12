@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 20:10:20 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/08/11 17:55:17 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/08/12 18:37:22 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include <fstream>
 
+#define SHRU "ShrubberyCreationForm"
 #define SHRU_SIGN 145
 #define SHRU_EXEC 137
 

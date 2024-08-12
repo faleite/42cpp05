@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 18:32:00 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/07/26 21:40:49 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/08/12 16:22:00 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ Form &Form::operator=(const Form &assignCopy)
 
 Form::~Form()
 {
-	std::cout << "Form destroctor called for ";
+	std::cout << "Form destructor called for ";
 	std::cout << this->_name << std::endl;
 }
 

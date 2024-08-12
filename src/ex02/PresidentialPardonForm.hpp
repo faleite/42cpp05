@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 20:10:20 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/08/11 17:51:57 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/08/12 19:14:33 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 
-#define PRES_SIGN 25 
+#define PRES "PresidentialPardonForm"
+#define PRES_SIGN 25
 #define PRES_EXEC 5
 
 class Bureaucrat;
@@ -30,13 +31,6 @@ class PresidentialPardonForm: public AForm
 	private:
 		const std::string _target;
 	public:
-		// Exceptions
-		// class RobotomyException: public std::exception
-		// {
-		// 	public:
-		// 		virtual const char *what() const throw();	
-		// };
-		// Canonical form
 		PresidentialPardonForm();
 		PresidentialPardonForm(const std::string &target);
 		PresidentialPardonForm(const PresidentialPardonForm &copyObj);

@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/24 18:32:00 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/07/31 20:04:48 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/08/12 17:38:26 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ AForm &AForm::operator=(const AForm &assignCopy)
 
 AForm::~AForm()
 {
-	std::cout << "AForm destroctor called for ";
+	std::cout << "AForm destructor called for ";
 	std::cout << this->_name << std::endl;
 }
 
@@ -67,6 +67,11 @@ const char *AForm::GradeTooLowException::what() const throw()
 const char *AForm::AFormException::what() const throw()
 {
 	return ("AForm has already been signed");
+}
+
+const char *AForm::AFormNotSigned::what() const throw()
+{
+	return ("AForm has not been signed");
 }
 
 // Getters
@@ -108,4 +113,12 @@ void AForm::beSigned(const Bureaucrat &bureaucrat)
 	if (bureaucrat.getGrade() > _gradeToSign)
 		throw AForm::GradeTooLowException();
 	_isSigned = true; 
+}
+
+void AForm::beExecuted(const Bureaucrat &bureaucrat) const
+{
+	if (!_isSigned)
+		throw AForm::AFormNotSigned();
+	if (bureaucrat.getGrade() > _gradeToExec)
+		throw AForm::GradeTooLowException();
 }
