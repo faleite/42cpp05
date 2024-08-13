@@ -6,12 +6,12 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 19:49:40 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/07/26 20:57:44 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/08/13 18:21:18 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 // Canonical members
 
@@ -107,16 +107,30 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
 
 // About form
 
-void Bureaucrat::signForm(Form &form)
+void Bureaucrat::signForm(AForm &form)
 {
 	try
 	{
 		form.beSigned(*this);
 		std::cout << _name << " signed " << form.getName() << std::endl;
 	}
-	catch(const std::exception& e)
+	catch(const AForm::AFormException& e)
 	{
 		std::cerr << _name << " couldn't sign " << form.getName();
 		std::cerr << " because " << e.what() << std::endl;
+	}
+}
+
+void Bureaucrat::executeForm(AForm const & form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << _name << " executed " << form.getName() << std::endl;
+	}
+	catch(const AForm::AFormException& e)
+	{
+		std::cerr << _name << " cannot execute " << form.getName();
+		std::cerr << " becauase " << e.what() << '\n';
 	}
 }

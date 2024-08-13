@@ -6,7 +6,7 @@
 #    By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/14 20:38:06 by faaraujo          #+#    #+#              #
-#    Updated: 2024/07/31 20:09:28 by faaraujo         ###   ########.fr        #
+#    Updated: 2024/08/13 21:28:53 by faaraujo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@
 NAME = form
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = Bureaucrat.cpp AForm.cpp main.cpp
+SRC = Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp \
+	RobotomyRequestForm.cpp PresidentialPardonForm.cpp main.cpp
 OBJS = $(SRC:.cpp=.o)
 
 #******************************************************************************#
@@ -42,7 +43,7 @@ clean:
 	
 fclean: clean
 	rm -f $(NAME)
-	
+	rm -f *_shrubbery
 	clear
 	@echo "$(RED)$(NAME) $(GREEN)has been deleted.$(CLR_RESET)"
 

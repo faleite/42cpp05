@@ -6,31 +6,15 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 21:14:41 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/08/11 18:12:47 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/08/13 21:31:45 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
-
-/*
-      .     .  .      +     .      .          .
-     .       .      .     #       .           .
-        .      .         ###            .      .      .
-      .      .   "#:. .:##"##:. .:#"  .      .
-          .      . "####"###"####"  .
-       .     "#:.    .:#"###"#:.    .:#"  .        .       .
-  .             "#########"#########"        .        .
-        .    "#:.  "####"###"####"  .:#"   .       .
-     .     .  "#######""##"##""#######"                  .
-                ."##"#####"#####"##"           .      .
-    .   "#:. ...  .:##"###"###"##:.  ... .:#"     .
-      .     "#######"##"#####"##"#######"      .     .
-    .    .     "#####""#######""#####"    .      .
-            .     "      000      "    .     .
-       .         .   .   000     .        .       .
-.. .. ..................O000O........................ ...... ...
-*/
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 /*
 Em todos os casos, a classe base Form deve ser uma classe abstrata e, portanto, 
@@ -73,50 +57,64 @@ Se não, imprima uma mensagem de erro explícita.
 */
 int	main(void)
 {
-	std::cout << "==========================================" << std::endl;
+	std::cout << "=============ShrubberyCreation================" << std::endl;
 	{
 		try
 		{
-			Form form("Performance evaluation", 5, 42);
-			Bureaucrat a("Horace Mann", 5);
-			Bureaucrat b("Otto Von Bismarck", 5);
+			ShrubberyCreationForm form("garden");
+			Bureaucrat a("Peter", 137);
 			std::cout << "==========================================" << std::endl;
-			std::cout << a;
-			std::cout << b;
-			std::cout << "==========================================" << std::endl;
+			a.signForm(form);
+			a.executeForm(form);
 			std::cout << form;
-			try
-			{
-				
-				std::cout << "==========================================" << std::endl;
-				std::cout << "I tried update " << a.getName() << "'s grade and..." << std::endl;
-				a.decrementGrade();
-				std::cout << a;
-				a.signForm(form);
-				b.signForm(form);
-				// form.beSigned(b);
-				try
-				{
-					form.beSigned(b);
-				}
-				catch(const std::exception& e)
-				{
-					std::cerr << "===========plus  inner exception==========" << std::endl;
-					std::cerr << form.getName() << " " << e.what() << std::endl;
-				}
-				std::cout << "==========================================" << std::endl;
-			}
-			catch (std::exception &e)
-			{
-				std::cerr << "=============inner exception==============" << std::endl;
-				std::cerr << e.what() << std::endl;
-			}
+			std::cout << a;
+			std::cout << "==========================================" << std::endl;
 		}
-		catch (std::exception &e)
+		catch (const std::exception& e)
 		{
-			std::cerr << "=============outer exception==============" << std::endl;
+			std::cerr << "=============exception==============" << std::endl;
 			std::cerr << e.what() << std::endl;
 		}
 	}
+	std::cout << "\n===============RobotomyRequestForm==================" << std::endl;
+	{
+		try
+		{
+			RobotomyRequestForm form("documents");
+			Bureaucrat a("John", 45);
+			std::cout << "==========================================" << std::endl;
+			a.signForm(form);
+			a.executeForm(form);
+			std::cout << form;
+			std::cout << a;
+			std::cout << "==========================================" << std::endl;
+		}
+		catch (const std::exception& e)
+		{
+			std::cerr << "=============exception==============" << std::endl;
+			std::cerr << e.what() << std::endl;
+		}
+	}
+	std::cout << "\n==============PresidentialPardonForm================" << std::endl;
+	{
+		try
+		{
+			PresidentialPardonForm form("Manager");
+			Bureaucrat a("Bruce", 5);
+			std::cout << "==========================================" << std::endl;
+			a.executeForm(form);
+			a.signForm(form);
+			a.executeForm(form);
+			std::cout << form;
+			std::cout << a;
+			std::cout << "==========================================" << std::endl;
+		}
+		catch (const std::exception& e)
+		{
+			std::cerr << "=============exception==============" << std::endl;
+			std::cerr << e.what() << std::endl;
+		}
+	}
+	std::cout << "==========================================" << std::endl;
 	return (0);
 }

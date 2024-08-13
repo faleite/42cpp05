@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 21:06:55 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/08/12 17:37:43 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/08/13 19:05:55 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,25 +24,31 @@ class AForm
 		const int _gradeToExec;
 	public:
 		// Exceptions
-		class GradeTooHighException: public std::exception
+		class AFormException: public std::exception
+		{
+			public:
+				virtual const char *what() const throw() = 0;
+		};
+		
+		class GradeTooHighException: public AFormException
 		{
 			public:
 				virtual const char *what() const throw();	
 		};
 		
-		class GradeTooLowException: public std::exception
+		class GradeTooLowException: public AFormException
 		{
 			public:
 				virtual const char *what() const throw();		
 		};
 
-		class AFormException: public std::exception
+		class AFormSigned: public AFormException
 		{
 			public:
 				virtual const char *what() const throw();		
 		};
 
-		class AFormNotSigned: public std::exception
+		class AFormNotSigned: public AFormException
 		{
 			public:
 				virtual const char *what() const throw();		
