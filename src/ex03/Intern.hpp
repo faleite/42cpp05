@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 11:56:48 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/08/15 22:07:46 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/08/17 15:11:13 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,14 @@ class Intern
 {
 	private:
 		std::string _formNames[3];
+		
 		// array of function pointers
-		AForm* (Intern::*_forms[4])(const std::string &target);
+		AForm* (Intern::*_forms[3])(const std::string &target);
+		
+		AForm* makeShrubberyForm(const std::string &target);
+		AForm* makeRobotomyForm(const std::string &target);
+		AForm* makePresidentialForm(const std::string &target);
+		
 	public:
 		class InternExceptions: public AForm::AFormException
 		{
@@ -64,11 +70,6 @@ class Intern
 		~Intern();
 		
 		AForm* makeForm(const std::string &form, const std::string &target);
-		// AForm* takeForm(const std::string &form, const std::string &target);
-		AForm* makeShrubberyForm(const std::string &target);
-		AForm* makeRobotomyForm(const std::string &target);
-		AForm* makePresidentialForm(const std::string &target);
-		AForm* makeErrorForm(const std::string &target);
 };
 
 #endif // INTERN_HPP

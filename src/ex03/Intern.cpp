@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 11:56:48 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/08/15 22:22:04 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/08/17 14:52:43 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,15 @@
 
 Intern::Intern()
 {
-	// std::cout << "Intern default constructor called" << std::endl;
-	// _formNames[0] = "shrubbery creation";
-    // _formNames[1] = "robotomy request";
-    // _formNames[2] = "presidential pardon";
-    // // _formNames[3] = "error";
+	std::cout << "Intern default constructor called" << std::endl;
+	
+	_formNames[0] = "shrubbery creation";
+    _formNames[1] = "robotomy request";
+    _formNames[2] = "presidential pardon";
 
-    // _forms[0] = &Intern::makeShrubberyForm;
-    // _forms[1] = &Intern::makeRobotomyForm;
-    // _forms[2] = &Intern::makePresidentialForm;
-    // _forms[3] = &Intern::makeErrorForm;
+    _forms[0] = &Intern::makeShrubberyForm;
+    _forms[1] = &Intern::makeRobotomyForm;
+    _forms[2] = &Intern::makePresidentialForm;
 }
 Intern::Intern(const Intern &copyObj)
 {
@@ -48,20 +47,6 @@ const char *Intern::InternExceptions::what() const throw()
 	return ("form doesn’t exist");
 }
 
-// const std::string Intern::_formNames[3] =
-// {
-// 	"shrubbery creation",
-// 	"robotomy request",
-// 	"presidential pardon"
-// };
-
-// AForm* (Intern::*_forms[3])(const std::string &target) =
-// {
-// 	&Intern::makeShrubberyForm,
-// 	&Intern::makeRobotomyForm,
-// 	&Intern::makePresidentialForm
-// };
-
 AForm* Intern::makeShrubberyForm(const std::string &target)
 {
 	return (new ShrubberyCreationForm(target));
@@ -76,44 +61,21 @@ AForm* Intern::makePresidentialForm(const std::string &target)
 {
 	return (new PresidentialPardonForm(target));
 }
-AForm* Intern::makeErrorForm(const std::string &target)
-{
-	(void)target;
-	throw InternExceptions();
-	return (0);
-}
 
 AForm *Intern::makeForm(const std::string &form, const std::string &target)
-{
-	const std::string formNames[3] =
-	{
-		"shrubbery creation",
-		"robotomy request",
-		"presidential pardon"
-	};
-
-	AForm* (Intern::*_forms[3])(const std::string &target) =
-	{
-		&Intern::makeShrubberyForm,
-		&Intern::makeRobotomyForm,
-		&Intern::makePresidentialForm
-	};
-	
-	AForm *newForm;
+{	
+	AForm *newForm(NULL);
 	int i(0);
 	
 	try
 	{
-		while (i < 4 && formNames[i].compare(form) != 0)
+		while (i < 3 && this->_formNames[i].compare(form) != 0)
 			i++;
-		if (i < 3)
-		{
-			newForm = (this->*_forms[i])(target);
-			std::cout << "Intern creates " << newForm->getName() << std::endl;
-			return (newForm);
-		}
-		else
+		if (i > 2)
 			throw InternExceptions();
+		newForm = (this->*_forms[i])(target);
+		std::cout << "Intern creates " << newForm->getName() << std::endl;
+		return (newForm);
 	}
 	catch(const std::bad_alloc& e)
 	{
