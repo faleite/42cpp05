@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 20:10:20 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/08/12 18:13:50 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/08/18 15:38:23 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,15 +83,6 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 
 std::ostream &operator<<(std::ostream &out, const ShrubberyCreationForm &form)
 {
-	// const AForm *AFormOperator;
-	
-	/* AFormOperator é um ponteiro para a classe base AForm, mas está apontando para
-	um objeto da classe derivada ShrubberyCreationForm. */
-	// AFormOperator = &form;
-	// out << *AFormOperator;
-
-	/* Converte explicitamente o objeto form (que é do tipo ShrubberyCreationForm) 
-	para uma referência constante (const AForm&) da classe base AForm. */
 	out << static_cast<const AForm&>(form);
 	out << "ShrubberyCreationForm target: " << form.getTarget() << std::endl;
 	return (out);

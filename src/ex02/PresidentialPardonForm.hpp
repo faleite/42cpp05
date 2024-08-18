@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 20:10:20 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/08/12 19:14:33 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/08/18 15:10:39 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@
 class Bureaucrat;
 
 /*
-PresidentialPardonForm: Notas necessárias: sinal 25, exec 5
-Informa que <target> foi perdoado por Zaphod Beeblebrox.
+ShrubberyCreationForm: Required grades: sign 145, exec 137
+Create a file <target>_shrubbery in the working directory, 
+and writes ASCII trees inside it.
 */
 class PresidentialPardonForm: public AForm
 {

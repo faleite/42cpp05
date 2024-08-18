@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 21:14:41 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/08/17 15:51:01 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/08/18 16:07:49 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ int	main(void)
 		
 		if (rrf)
 		{
-			/* Conversão Dinâmica (dynamic_cast<RobotomyRequestForm *>(rrf)):
-			tenta converter rrf para um ponteiro do tipo RobotomyRequestForm*.
-			Se a conversão for bem-sucedida, o objeto resultante é tratado como
-			um RobotomyRequestForm. A função operator<< específica para RobotomyRequestForm
-			será chamada, permitindo a impressão de detalhes específicos dessa classe derivada. */
-			// dynamic_cast realiza verificação em tempo de execução e é seguro para hierarquias polimórficas
+			/* Dynamic Cast (dynamic_cast<RobotomyRequestForm *>(rrf)):
+			attempts to cast rrf to a pointer of type RobotomyRequestForm*.
+			If the cast is successful, the resulting object is treated as
+			a RobotomyRequestForm. The operator<< function specific to RobotomyRequestForm
+			will be called, allowing printing of details specific to that derived class. */
+			// dynamic_cast performs runtime checking and is safe for polymorphic hierarchies
 			std::cout << *dynamic_cast<RobotomyRequestForm*>(rrf);
 			delete (rrf);
 		}

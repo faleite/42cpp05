@@ -6,7 +6,7 @@
 #    By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/14 20:38:06 by faaraujo          #+#    #+#              #
-#    Updated: 2024/08/13 21:28:53 by faaraujo         ###   ########.fr        #
+#    Updated: 2024/08/18 15:25:40 by faaraujo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 #                                 VARIABLES                                    #
 #******************************************************************************#
 
-NAME = form
+NAME = forms
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp \

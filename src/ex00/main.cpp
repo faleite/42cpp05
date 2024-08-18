@@ -6,21 +6,12 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 21:14:41 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/07/23 19:19:44 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/08/18 12:36:02 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-/* Subject
- *Observe que classes de exceção não precisam ser projetadas em
-Forma Canônica Ortodoxa. Mas todas as outras classes precisam.
-
-- Vamos projetar um pesadelo artificial de escritórios, corredores, formulários e filas de espera.
-Parece divertido? Não? Que pena.
-
-
-*/
 int	main(void)
 {
 	{

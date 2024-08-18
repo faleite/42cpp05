@@ -6,20 +6,13 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 21:14:41 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/07/26 21:53:26 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/08/18 14:52:11 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-/**
- * Temos um Burocrata e um formulario
- * Acho que a ideia e fazer o burocrata preencher o formulario
- * 1. cria um formulario
- *   - possui Nome, notaAss, NotaExec, Ass: s/n
- * 2. Burocrata preenche o formulario
- */
 int	main(void)
 {
 	std::cout << "==========================================" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 20:10:20 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/08/12 18:37:22 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/08/18 15:38:38 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,6 @@
 
 class Bureaucrat;
 
-/*
-Classe concreta:
-ShrubberyCreationForm: Notas necessárias: sinal 145, exec 137
-Cria um arquivo <target>_shrubbery no diretório de trabalho e grava árvores 
-ASCII dentro dele.
-*/
 class ShrubberyCreationForm: public AForm
 {
 	private:

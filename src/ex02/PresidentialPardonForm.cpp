@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 20:10:20 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/08/12 19:30:11 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/08/18 15:15:39 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 
 std::ostream &operator<<(std::ostream &out, const PresidentialPardonForm &form)
 {
+	/* static_cast does not perform runtime checking and is faster, 
+	but the programmer must ensure the safety of the cast. */
 	out << static_cast<const AForm&>(form);
 	out << "PresidentialPardonForm target: " << form.getTarget() << std::endl;
 	return (out);

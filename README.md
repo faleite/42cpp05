@@ -18,7 +18,7 @@
   * **[General rules](#general-rules)**
   * **[design requirements](#alguns-requisitos-de-design)**
   * **[Read me](#read-me)**
-* **[Wiki](https://github.com/faleite/42cpp00/wiki/)**
+* **[Wiki](https://github.com/faleite/42cpp00/wiki/Module-VI)**
 * **[Roadmap](https://faleite.github.io/cpp)**
 * **[Study resources](#study-resources)**
 <!-- * ### [Usage]() -->
@@ -63,6 +63,8 @@
   - Destrutor
 
 Divida o código da sua classe em dois arquivos. O arquivo de cabeçalho (.hpp/.h) contém a definição da classe, enquanto o arquivo de origem (.cpp) contém a implementação.
+
+### [Wiki](https://github.com/faleite/42cpp00/wiki/Module-VI) (CPP_05)
 
 ## Study resources
 Resource | Source

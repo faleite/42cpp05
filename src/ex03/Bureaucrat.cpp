@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 19:49:40 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/08/13 18:21:18 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/08/18 15:36:18 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,6 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade):
         throw GradeTooLowException();
 }
 
-/*
-O construtor de cópia permite copyObj._name na lista de inicializadores de membros
-porque this->name ainda não foi inicializado.
-
-A atribuição de cópia, this->_name já foi inicializada e const
-não pode ser copiada
- */
 Bureaucrat::Bureaucrat(const Bureaucrat &copyObj):
 						_name(copyObj._name), _grade(copyObj._grade)
 {

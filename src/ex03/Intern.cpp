@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 11:56:48 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/08/17 14:52:43 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/08/18 16:09:13 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,24 @@ Intern::Intern(const Intern &copyObj)
 {
 	std::cout << "Intern copy constructor called" << std::endl;
 	(void)copyObj;
+	// for (int i = 0; i < 3; ++i) 
+	// {
+    //     _formNames[i] = copyObj._formNames[i];
+    //     _forms[i] = copyObj._forms[i];
+    // }
 }
 
 Intern &Intern::operator=(const Intern &assignCopy)
 {
 	std::cout << "Intern assignment operator called" << std::endl;
+	// if (this != &assignCopy) 
+	// {
+    //     for (int i = 0; i < 3; ++i) 
+	// 	{
+    //         _formNames[i] = assignCopy._formNames[i];
+    //         _forms[i] = assignCopy._forms[i];
+    //     }
+    // }
 	(void)assignCopy;
 	return (*this);
 }

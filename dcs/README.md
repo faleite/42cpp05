@@ -5,11 +5,11 @@
 
 01. **[Nested classes](#nested-classes)**
 02. **[Exceptions](#exceptions)**
+03. **[Resources](#resources)**
 <!-- 03. **[Unhandled exceptions]()**
 04. **[Code that causes an exeception to be thrown]()**
 05. **[Nested try blocks]()**
-06. **[Add custom exception class]()**
-07. **[resources]()** -->
+06. **[Add custom exception class]()** -->
 
 ## Nested classes
 Uma **classe aninhada** (nested class) é uma classe que é definida dentro do escopo de outra classe. Essas classes são úteis para organizar e agrupar logicamente o código relacionado, especialmente quando a classe aninhada é fortemente associada à classe externa. A classe aninhada pode acessar membros privados da classe que a contém, mas o contrário não é verdade a menos que sejam feitas provisões específicas para isso.
@@ -244,3 +244,6 @@ Neste exemplo, a classe `MyException` é uma exceção personalizada que herda d
 Exceções são uma ferramenta poderosa em C++98 para tratar erros de forma robusta e estruturada. Elas permitem que o código principal permaneça limpo e focado em sua lógica principal, enquanto o tratamento de erros é delegado a blocos específicos de código. Além disso, exceções ajudam a garantir que os recursos sejam gerenciados adequadamente, evitando vazamentos e outros problemas relacionados.
 
 [↑ Index ↑](#index)
+
+## Resources
+- [cplusplus - exceptions](https://cplusplus.com/doc/oldtutorial/exceptions/)

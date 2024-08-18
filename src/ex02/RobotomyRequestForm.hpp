@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 20:10:20 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/08/12 19:11:04 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/08/18 15:17:59 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,10 @@
 class Bureaucrat;
 
 /*
-Classe concreta:
-RobotomyRequestForm: Notas necessárias: sinal 72, exec 45
-Faz alguns ruídos de perfuração. Então, informa que <target> 
-foi robotomizado com sucesso 50% das vezes. Caso contrário, 
-informa que a robotomia falhou.
+RobotomyRequestForm: Required grades: sign 72, exec 45
+Makes some drilling noises. Then, informs that <target> 
+has been robotomized successfully 50% of the time. Otherwise, 
+informs that the robotomy failed.
 */
 class RobotomyRequestForm: public AForm
 {
