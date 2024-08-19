@@ -6,7 +6,7 @@
 #    By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/14 20:38:06 by faaraujo          #+#    #+#              #
-#    Updated: 2024/08/18 15:53:25 by faaraujo         ###   ########.fr        #
+#    Updated: 2024/08/19 17:28:18 by faaraujo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@
 
 NAME = intern
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp \
 	RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp main.cpp
 OBJS = $(SRC:.cpp=.o)

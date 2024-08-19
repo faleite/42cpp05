@@ -6,7 +6,7 @@
 /*   By: faaraujo <faaraujo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 11:56:48 by faaraujo          #+#    #+#             */
-/*   Updated: 2024/08/18 15:42:07 by faaraujo         ###   ########.fr       */
+/*   Updated: 2024/08/19 19:00:15 by faaraujo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,6 @@
 class Intern
 {
 	private:
-		std::string _formNames[3];
-		// array of function pointers
-		AForm* (Intern::*_forms[3])(const std::string &target);
-		
 		AForm* makeShrubberyForm(const std::string &target);
 		AForm* makeRobotomyForm(const std::string &target);
 		AForm* makePresidentialForm(const std::string &target);
