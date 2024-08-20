@@ -64,11 +64,11 @@
 
 Divida o código da sua classe em dois arquivos. O arquivo de cabeçalho (.hpp/.h) contém a definição da classe, enquanto o arquivo de origem (.cpp) contém a implementação.
 
-### [Wiki](https://github.com/faleite/42cpp00/wiki/Module-VI) (CPP_05)
 
 ## Study resources
 Resource | Source
 ---------|:-----:
+[CPP Module 05](https://github.com/faleite/42cpp00/wiki/Module-VI) | `Wiki`
 [CPP Tutorial (C++98)](https://cplusplus.com/doc/oldtutorial) | `Website`
 [CPP Reference](https://cplusplus.com/) | `Website`
 [CPP++ shell](http://cpp.sh) | `run code online`
